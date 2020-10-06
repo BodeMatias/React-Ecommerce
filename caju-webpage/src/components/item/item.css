@@ -1,0 +1,5 @@
+.button-position {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

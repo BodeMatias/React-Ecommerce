@@ -1,9 +1,16 @@
-const { ADD_ITEM, REMOVE_ITEM } = require("../actions/actions");
+const {
+    ADD_ITEM,
+    REMOVE_ITEM,
+    CHANGE_QUANTITY,
+    EMPTY_CART,
+} = require("../constants/constants");
 
-export const counter = (state, action) => {
+export const cart_reducer = (state, action) => {
     switch (action.type) {
         case ADD_ITEM:
         case REMOVE_ITEM:
+        case CHANGE_QUANTITY:
+        case EMPTY_CART:
         default:
     }
 };

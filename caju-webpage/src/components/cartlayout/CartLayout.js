@@ -1,0 +1,18 @@
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import "./cartlayout.css";
+
+const CartLayout = (props) => {
+    return (
+        <div className="cart-centered">
+            <div className="cart-column">
+                <Typography className="page-title" gutterBottom variant="h4">
+                    Carrito
+                </Typography>
+                <div className="cart-flexlayout">{props.children}</div>
+            </div>
+        </div>
+    );
+};
+
+export default CartLayout;
