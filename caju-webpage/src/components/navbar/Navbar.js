@@ -7,8 +7,6 @@ import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
-import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -98,9 +96,6 @@ export default function SearchAppBar() {
                             inputProps={{ "aria-label": "search" }}
                         />
                     </div>
-                    <Link to="/cart" className="cart">
-                        <ShoppingCartRoundedIcon />
-                    </Link>
                 </Toolbar>
             </AppBar>
         </div>

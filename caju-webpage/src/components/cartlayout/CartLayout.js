@@ -7,7 +7,11 @@ const CartLayout = (props) => {
     return (
         <div className="cart-centered">
             <div className="cart-column">
-                <Typography className="page-title" gutterBottom variant="h4">
+                <Typography
+                    className="cart-page-title"
+                    gutterBottom
+                    variant="h4"
+                >
                     Carrito
                 </Typography>
                 <div className="cart-flexlayout">{props.children}</div>

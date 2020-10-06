@@ -3,24 +3,17 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import StoreRoute from "./components/storeroute/StoreRoute";
 import CartRoute from "./components/cartroute/CartRoute";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
-/*
-<StoreRoute />
-*/
+import Layout from "./components/layout/Layout";
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <div>
-                <Navbar />
-                <Redirect from="/" to="/home" />
-                <Switch>
-                    <Route path="/home" component={StoreRoute} />
-                    <Route path="/cart" component={CartRoute} />
-                </Switch>
-            </div>
-        </BrowserRouter>
+        <div>
+            <Navbar />
+            <Layout>
+                <StoreRoute />
+                <CartRoute />
+            </Layout>
+        </div>
     );
 };
 

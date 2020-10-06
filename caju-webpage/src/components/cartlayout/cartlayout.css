@@ -1,31 +1,27 @@
-.cart-centered {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .cart-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .cart-flexlayout {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
 }
 
 .cart-pedido {
+    display: flex;
     margin: 5%;
+    justify-content: center;
 }
 
-@media screen and (max-width: 760px) {
-    .cart-centered {
-        flex-direction: column;
-    }
+.cart-centered {
+    width: 350px;
+}
+.cart-page-title {
+    padding-top: 15%;
 }

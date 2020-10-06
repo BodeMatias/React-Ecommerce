@@ -11,6 +11,9 @@ const StoreRoute = (props) => {
                 <Item />
                 <Item />
                 <Item />
+                <Item />
+                <Item />
+                <Item />
             </ItemLayout>
         </>
     );
