@@ -24,7 +24,7 @@ const CartItem = (props) => {
                     <div className="card-details-holder">
                         <CardContent className="">
                             <Typography component="h5" variant="h5">
-                                Sushi
+                                {props.name}
                             </Typography>
                         </CardContent>
                     </div>
@@ -37,7 +37,7 @@ const CartItem = (props) => {
                             variant="h6"
                             color="textSecondary"
                         >
-                            $420
+                            {props.description}
                         </Typography>
                     </CardContent>
                     <CardContent className="">

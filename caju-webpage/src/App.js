@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import StoreRoute from "./components/storeroute/StoreRoute";
-import CartItem from "./components/cartitem/CartItem";
-import CartLayout from "./components/cartlayout/CartLayout";
+import CartRoute from "./components/cartroute/CartRoute";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 /*
 <StoreRoute />
@@ -11,14 +11,16 @@ import CartLayout from "./components/cartlayout/CartLayout";
 
 const App = () => {
     return (
-        <div className="App">
-            <Navbar />
-            <CartLayout>
-                <CartItem />
-                <CartItem />
-                <CartItem />
-            </CartLayout>
-        </div>
+        <BrowserRouter>
+            <div>
+                <Navbar />
+                <Redirect from="/" to="/home" />
+                <Switch>
+                    <Route path="/home" component={StoreRoute} />
+                    <Route path="/cart" component={CartRoute} />
+                </Switch>
+            </div>
+        </BrowserRouter>
     );
 };
 

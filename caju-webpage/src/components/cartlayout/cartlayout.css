@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -17,4 +18,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.cart-pedido {
+    margin: 5%;
+}
+
+@media screen and (max-width: 760px) {
+    .cart-centered {
+        flex-direction: column;
+    }
 }
