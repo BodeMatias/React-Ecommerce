@@ -1,5 +1,17 @@
 .button-position {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
+}
+.item-name {
+    display: flex;
+    justify-content: center;
+}
+.card-area {
+    padding: 0;
+}
+
+.item-price {
+    display: flex;
+    justify-content: center;
 }

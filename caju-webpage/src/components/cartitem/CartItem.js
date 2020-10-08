@@ -11,15 +11,14 @@ import "./cartitem.css";
 const CartItem = (props) => {
     const num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+    var url = require("../../assets/" + props.url);
+
     return (
         <div className="card-container">
             <Card className="card-main">
                 <div className="card-details">
                     <div className="card-image-holder">
-                        <CardMedia
-                            className="card-image"
-                            image={require("../../assets/descarga.jpg")}
-                        />
+                        <CardMedia className="card-image" image={url} />
                     </div>
                     <div className="card-details-holder">
                         <CardContent className="">
@@ -37,7 +36,7 @@ const CartItem = (props) => {
                             variant="h6"
                             color="textSecondary"
                         >
-                            {props.description}
+                            ${props.price}
                         </Typography>
                     </CardContent>
                     <CardContent className="">
@@ -50,6 +49,13 @@ const CartItem = (props) => {
                                 })}
                             </Select>
                         </FormControl>
+                    </CardContent>
+                    <CardContent className="">
+                        <Typography
+                            component="h6"
+                            variant="h6"
+                            color="textSecondary"
+                        ></Typography>
                     </CardContent>
                 </div>
             </Card>

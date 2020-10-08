@@ -10,18 +10,9 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import "./item.css";
+import Cookies from "js-cookie";
 
 const Item = (props) => {
-    /*
-    needed
-    props.name 
-    props.description
-    props.imageURL
-
-
-    image={"/static/images/cards/" + props.imageURL + ".jpg"}
-    */
-
     const useStyles = makeStyles({
         root: {
             width: 180,
@@ -34,31 +25,55 @@ const Item = (props) => {
 
     const classes = useStyles();
 
+    var url = require("../../assets/" + props.url);
+
     return (
         <Card className={classes.root}>
-            <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    image={require("../../assets/descarga.jpg")}
-                />
+            <CardActionArea className="card-area">
+                <CardMedia className={classes.media} image={url} />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography
+                        className="item-name"
+                        gutterBottom
+                        variant="h5"
+                        component="h2"
+                    >
                         {props.name}
                     </Typography>
                     <Typography
-                        variant="body2"
+                        className="item-price"
+                        variant="h6"
+                        component="h3"
                         color="textSecondary"
-                        component="p"
                     >
-                        {props.description}
+                        {"$" + props.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions className="button-position">
-                <Fab size="small" color="primary" aria-label="add">
+                <Fab
+                    onClick={() => {
+                        var unparsedCookie = Cookies.get("cart");
+                        if (unparsedCookie === undefined) {
+                            unparsedCookie = "[]";
+                        }
+                        var parsedCookie = JSON.parse(unparsedCookie);
+
+                        parsedCookie.push({
+                            name: props.name,
+                            price: props.price,
+                            url: props.url,
+                        });
+                        Cookies.set("cart", parsedCookie);
+                        window.location.reload(false);
+                    }}
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                >
                     <AddIcon />
                 </Fab>
-                <Fab size="small" aria-label="like">
+                <Fab onClick="" size="small" aria-label="like">
                     <FavoriteIcon color="secondary" />
                 </Fab>
             </CardActions>
