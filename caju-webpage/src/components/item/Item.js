@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -27,6 +27,42 @@ const Item = (props) => {
 
     var url = require("../../assets/" + props.url);
 
+
+    function handleClick() {
+        var unparsedCookie = Cookies.get("cart");
+        if (unparsedCookie === undefined) {
+            unparsedCookie = "[]";
+        }
+        var parsedCookie = JSON.parse(unparsedCookie);
+        if(contains(parsedCookie)){
+            parsedCookie.map(value => {
+                if(value.id === props.id && value.quantity !== 10){
+                    value.quantity++
+                    document.getElementById(props.id).value = value.quantity
+                }
+            })
+        } else {
+            parsedCookie.push({
+                name: props.name,
+                price: props.price,
+                url: props.url,
+                id: props.id,
+                quantity: props.quantity
+            });
+        }
+        props.setCartItems(parsedCookie)
+        Cookies.set("cart", parsedCookie);
+        
+        console.log(parsedCookie)
+    }
+
+    let contains = (list) => {
+        for(let k in list){
+            if(list[k]['id'] === props.id) return true
+        }
+        return false
+    }
+
     return (
         <Card className={classes.root}>
             <CardActionArea className="card-area">
@@ -52,21 +88,7 @@ const Item = (props) => {
             </CardActionArea>
             <CardActions className="button-position">
                 <Fab
-                    onClick={() => {
-                        var unparsedCookie = Cookies.get("cart");
-                        if (unparsedCookie === undefined) {
-                            unparsedCookie = "[]";
-                        }
-                        var parsedCookie = JSON.parse(unparsedCookie);
-
-                        parsedCookie.push({
-                            name: props.name,
-                            price: props.price,
-                            url: props.url,
-                        });
-                        Cookies.set("cart", parsedCookie);
-                        window.location.reload(false);
-                    }}
+                    onClick={handleClick}
                     size="small"
                     color="primary"
                     aria-label="add"

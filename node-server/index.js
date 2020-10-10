@@ -10,6 +10,7 @@ var products = [
         description: "gjdf;gljsdfklgjsdlkfgjsldk",
         price: 420,
         url: "descarga.jpg",
+        quantity: 1
     },
     {
         id: 2,
@@ -17,6 +18,7 @@ var products = [
         description: "asdfadfdfasdfadsfasdfasdfasdfasdfsdfasfd",
         price: 420,
         url: "descarga2.jpg",
+        quantity: 1
     },
     {
         id: 3,
@@ -25,42 +27,47 @@ var products = [
             "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
         price: 420,
         url: "descarga3.jpg",
-    },
-
-    {
-        id: 3,
-        name: "test3",
-        description:
-            "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
-        price: 420,
-        url: "descarga3.jpg",
+        quantity: 1
     },
 
     {
-        id: 3,
+        id: 4,
         name: "test3",
         description:
             "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
         price: 420,
         url: "descarga3.jpg",
+        quantity: 1
     },
 
     {
-        id: 3,
+        id: 5,
         name: "test3",
         description:
             "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
         price: 420,
         url: "descarga3.jpg",
+        quantity: 1
     },
 
     {
-        id: 3,
+        id: 6,
         name: "test3",
         description:
             "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
         price: 420,
         url: "descarga3.jpg",
+        quantity: 1
+    },
+
+    {
+        id: 7,
+        name: "test3",
+        description:
+            "fghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfghjfgjfghjfghjfgk",
+        price: 420,
+        url: "descarga3.jpg",
+        quantity: 1
     },
 ];
 app.use(cors());

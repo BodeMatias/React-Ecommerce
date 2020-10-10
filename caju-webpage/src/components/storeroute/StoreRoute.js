@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "../item/Item";
-import ItemLayout from "../itemslayout/ItemsLayout";
+import Typography from "@material-ui/core/Typography";
+import './storeroute.css'
 
 const StoreRoute = (props) => {
     const [productList, setProducts] = useState([]);
@@ -12,19 +13,26 @@ const StoreRoute = (props) => {
         }
         fetchData();
     }, []);
-
     return (
-        <ItemLayout>
+        <div className="column">
+            <Typography className="page-title" gutterBottom variant="h4">
+                Tienda
+            </Typography>
+            <div className="flexlayout">
             {productList.map((value) => {
-                return (
-                    <Item
-                        name={value.name}
-                        price={value.price}
-                        url={value.url}
-                    />
-                );
-            })}
-        </ItemLayout>
+                    return (
+                        <Item
+                            name={value.name}
+                            price={value.price}
+                            url={value.url}
+                            id={value.id}
+                            quantity={value.quantity}
+                            setCartItems={props.setCartItems}
+                        />
+                    );
+                })}
+            </div>
+        </div>
     );
 };
 
