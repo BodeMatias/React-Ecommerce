@@ -99,11 +99,6 @@ const Item = (props) => {
                         <AddIcon />
                     </Fab>
                 </Tooltip>
-                <Tooltip title="Agregar a favoritos">
-                    <Fab onClick="" size="small" aria-label="like">
-                        <FavoriteIcon color="secondary" />
-                    </Fab>
-                </Tooltip>
             </CardActions>
         </Card>
     );

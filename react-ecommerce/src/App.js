@@ -7,14 +7,18 @@ import readFromCookies from './readFromCookies';
 
 const App = () => {
     const [cartItems, setCartItems] = useState([])
+    const [results, setResults] = useState([])
+
     useEffect(()=>{
        readFromCookies(setCartItems)
-    }, [])
+       console.log(results)
+    }, [results])
+
     return (
         <>
-            <Navbar />
+            <Navbar setResults={setResults}/>
             <div className='main-container'>
-                <StoreRoute setCartItems={setCartItems}/>
+                <StoreRoute setCartItems={setCartItems} results={results}/>
                 <CartRoute cartItems={cartItems}/>
             </div>
         </>

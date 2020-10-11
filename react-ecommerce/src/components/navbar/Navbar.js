@@ -62,7 +62,37 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchAppBar() {
+
+export default function SearchAppBar(props) {
+
+    let handlerSearch = async (event) => {
+        event.preventDefault()
+        const value = document.getElementById('search').value
+
+        try {
+            let data = await fetch(`http://localhost:4200/search/${value}`)
+            let results = await data.json();
+
+            results.map(
+                r => {
+                    delete r.terms
+                    delete r.score
+                    delete r.match
+                }
+            )
+            props.setResults(results)
+        } 
+        catch (err) {
+            let results = []
+            props.setResults(results)
+        }
+        
+        finally {
+            document.getElementById('search').value = ''
+        }
+        
+    }
+
     const classes = useStyles();
 
     return (
@@ -77,14 +107,17 @@ export default function SearchAppBar() {
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ "aria-label": "search" }}
-                        />
+                        <form onSubmit={handlerSearch}>
+                            <InputBase
+                                id="search"
+                                placeholder="Search…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{ "aria-label": "search" }}
+                            />
+                        </form>
                     </div>
                 </Toolbar>
             </AppBar>

@@ -6,13 +6,20 @@ import './storeroute.css'
 const StoreRoute = (props) => {
     const [productList, setProducts] = useState([]);
     useEffect(() => {
+
         async function fetchData() {
             var response = await fetch("http://localhost:4200/products");
             var json = await response.json();
             setProducts(json);
         }
-        fetchData();
-    }, []);
+
+        if(props.results.length === 0){
+            fetchData();
+        } else {
+            setProducts([])
+            setProducts(props.results)
+        }
+    }, [props.results]);
     return (
         <div className="column">
             <Typography className="page-title" gutterBottom variant="h4">
