@@ -1,0 +1,58 @@
+.MuiSelect-select.MuiSelect-select {
+    padding-right: 18px;
+    padding-left: 18px;
+}
+.card-container {
+    display: flex;
+    height: 80;
+    margin: 2%;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content
+}
+
+.card-image-holder {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-basis: 50%;
+    align-items: center;
+    padding: 0
+}
+
+.card-image {
+    height: 100px;
+    width: 100px;
+    margin: 5%;
+    border-radius: 5%;
+}
+
+.card-details-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 240px;
+    word-break: break-word;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.align-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

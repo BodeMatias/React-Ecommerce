@@ -1,0 +1,45 @@
+.pedido-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtotal-pedido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.costo-pedido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.total-pedido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.pedido-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+}
+
+.pedido-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedido-cantidad {
+    display: flex;
+    justify-content: center;
+}

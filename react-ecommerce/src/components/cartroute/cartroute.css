@@ -1,0 +1,28 @@
+.cart-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-flexlayout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+.cart-pedido {
+    display: flex;
+    margin: 5%;
+    justify-content: center;
+}
+
+.cart-centered {
+    width: 350px;
+    padding-right: 10%;
+}
+.cart-page-title {
+    padding-top: 15%;
+}

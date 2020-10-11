@@ -1,0 +1,29 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.flexlayout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5%;
+    padding-top: 2%;
+}
+.centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #ffffff;
+}
+.page-title {
+    padding-top: 2%;
+}
+@media screen and (max-width: 700px) {
+    .flexlayout {
+        justify-content: center;
+    }
+}
