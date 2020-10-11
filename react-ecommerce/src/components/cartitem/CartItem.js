@@ -7,6 +7,9 @@ import FormControl from "@material-ui/core/FormControl";
 import Divider from "@material-ui/core/Divider";
 import Select from "@material-ui/core/Select";
 import Cookies from 'js-cookie';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Tooltip from '@material-ui/core/Tooltip';
 import "./cartitem.css";
 
 const CartItem = (props) => {
@@ -14,8 +17,10 @@ const CartItem = (props) => {
     const num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     var url = require("../../assets/" + props.url);
 
-    useEffect(() => 
+    useEffect(() => {
         setTotal(props.price*props.quantity)
+        document.getElementById(props.id).value = props.quantity
+    }
     ,[props.price, props.quantity])
 
     var handlerSelect = (event) => {
@@ -41,6 +46,14 @@ const CartItem = (props) => {
         props.setTrigger(prev => prev + 1)
     }
 
+    var handlerDelete = () => {
+        console.log(props.cartItems)
+        let filteredList = props.cartItems.filter(value => value.id !== props.id)
+        props.setCartItems(filteredList)
+        Cookies.set('cart', filteredList)
+        props.setTrigger(prev => prev + 1)
+    }
+
     return (
         <div className="card-container">
             <Card className="card-main">
@@ -54,6 +67,11 @@ const CartItem = (props) => {
                                 {props.name}
                             </Typography>
                         </CardContent>
+                        <Tooltip title = 'Remover del carrito'>
+                            <IconButton aria-label="delete" onClick={handlerDelete}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </Tooltip>
                     </div>
                 </div>
                 <Divider variant="middle" />

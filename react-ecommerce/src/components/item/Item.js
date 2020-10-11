@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import Tooltip from '@material-ui/core/Tooltip';
 import "./item.css";
 import Cookies from "js-cookie";
 
@@ -86,18 +87,23 @@ const Item = (props) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
+            
             <CardActions className="button-position">
-                <Fab
-                    onClick={handleClick}
-                    size="small"
-                    color="primary"
-                    aria-label="add"
-                >
-                    <AddIcon />
-                </Fab>
-                <Fab onClick="" size="small" aria-label="like">
-                    <FavoriteIcon color="secondary" />
-                </Fab>
+                <Tooltip title="Agregar al carrito">
+                    <Fab
+                        onClick={handleClick}
+                        size="small"
+                        color="primary"
+                        aria-label="add"
+                    >
+                        <AddIcon />
+                    </Fab>
+                </Tooltip>
+                <Tooltip title="Agregar a favoritos">
+                    <Fab onClick="" size="small" aria-label="like">
+                        <FavoriteIcon color="secondary" />
+                    </Fab>
+                </Tooltip>
             </CardActions>
         </Card>
     );
