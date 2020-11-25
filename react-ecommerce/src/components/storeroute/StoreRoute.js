@@ -12,7 +12,6 @@ const StoreRoute = (props) => {
             var json = await response.json();
             setProducts(json);
         }
-
         if(props.results.length === 0){
             fetchData();
         } else {
