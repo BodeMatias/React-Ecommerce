@@ -1,7 +1,17 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const MiniSearch = require('minisearch')
+const MiniSearch = require('minisearch');
+const { mongoose } = require('./dbconnection/dbconnection')
+const bodyParser = require('body-parser');
+const { json } = require("body-parser");
+require('dotenv').config();
+const multer = require('multer');
+const upload = multer();
+const path = require('path'); 
+
+global.__basedir = __dirname;
+
 const port = 4200;
 
 var products = [
@@ -71,8 +81,12 @@ var products = [
         quantity: 1
     },
 ];
-
 app.use(cors());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('./routes/product.routes'))
+app.use(express.static(__dirname + '/public'));
+
 app.get("/products", (req, res) => res.json(products));
 
 app.get("/search/:name", (req, res) => {
@@ -84,4 +98,4 @@ app.get("/search/:name", (req, res) => {
     let results = search.search(req.params.name, { prefix: true })
     res.json(results)
 })
-app.listen(port, () => console.log(`Example app listening on port port!`));
+app.listen(port, () => console.log('Server running on port: ' + port));

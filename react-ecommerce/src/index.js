@@ -2,10 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import Login from "./components/login/Login"
+import ControlPanel from "./components/controlpanel/ControlPanel"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-    <App />,
+    <Router>
+        <Switch>
+            <Route path='/login'> 
+                <Login/>
+            </Route>
+            <Route path='/panel'> 
+                <ControlPanel/>
+            </Route>
+            <Route path='/'> 
+                <App />
+            </Route>
+        </Switch>
+    </Router>
+    ,
     document.getElementById("root")
 );
 
